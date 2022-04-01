@@ -6,6 +6,7 @@ class ApodPhoto(models.Model):
     date = models.DateField()
     url = models.URLField()
     explanation = models.TextField()
+    author = models.ForeignKey('users.CustomUser', related_name="posts", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

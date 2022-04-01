@@ -5,4 +5,4 @@ from photos import models
 class ApodPhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ApodPhoto
-        fields = ('id', 'date', 'url', 'title', 'expanation', 'media')
+        fields = ('id', 'author', 'date', 'title', 'url', 'expanation', 'media')
