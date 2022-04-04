@@ -10,19 +10,20 @@
         <div id="app">
             <header>
                 <div class="nav">
-                    <div>
-                        <p>Hi {{ user.username }}!</p>
+                    <div class="greeting">
+                        <p>Hello {{ user.username }}!</p>
                     </div>
                     <div>
                         <p><a href="{% url 'logout' %}">Log Out</a></p>
-                    <div>
+                    </div>
                 </div>
-                <div>
+                <div class="features">
                     <h2>Choose a date for a previous picture:</h2>
                     <input type="date" v-model="userFilter" class="calendar">
                     <button v-on:click="loadAPOD" class="button">Submit</button>
                 </div>
             </header>
+            <div class="flex-container">
                 <div v-if="Object.keys(apod).length" class="day">
                     
                     <div v-if="apod.media_type === 'image'">
@@ -41,8 +42,8 @@
                 
                 </div>
 
-                <div v-else>
-                    <div v-for="info in arand" :key="info.date" class="sets">
+                <div v-else class="sets">
+                    <div v-for="info in arand" :key="info.date" class="sets-ind">
                         
                         <div v-if="info.media_type === 'image'">
                             <img :src="info.url">
@@ -61,7 +62,7 @@
                     </div>
                 
                 </div>
-
+            </div>
 
         </div>
 

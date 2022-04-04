@@ -5,10 +5,15 @@ html{
 .nav{
     display: flex;
     justify-content: space-between;
+    margin-right: 12px;
 }
 
 .features{
     justify-content: left;
+}
+
+.greeting{
+    margin-left: 12px;
 }
 
 a{
@@ -18,7 +23,7 @@ a{
 body{
     margin-left: 12px;
     margin-right: 12px;
-    margin-top: 125px;
+    margin-top: 175px;
     background-color: rgb(0, 0, 27);
     color: white;
 }
@@ -36,7 +41,6 @@ header{
     left: 0;
     z-index: 999px;
     width: 100%;
-    
 }
 
 header h2{
@@ -44,23 +48,24 @@ header h2{
     margin-left: 12px;
 }
 
+.sets{
+    max-width: 350px;
+}
+
 .sets img{
-    display: inline;
-    width: 350px;
-    height: 280px;
+    display: block;
+    max-width: 100%;
 }
 
 .sets iframe{
-    display: inline;
-    width: 350px;
-    height: 280px;
+    display: block;
+    max-width: 100%;
 }
 
 .day img{
     display: block;
     width: 350px;
     height: 280px;
-    
 }
 
 .day iframe{
@@ -71,6 +76,7 @@ header h2{
 
 .calendar{
     margin-left: 12px;
+    
 }
 
 .button{
@@ -81,12 +87,8 @@ p{
     line-height: 1.4em;
     font-family: 'Roboto', Helvetica, sans-serif;
     font-size: 12px;
-    
 }
 
-.text{
-    color: white;
-}
 
 .single{
     color: white;
@@ -96,32 +98,45 @@ p{
 @media (min-width: 730px) {
     .sets{
         display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    p{
+        font-size: 18px;
+        line-height: 1.5em;
+    }
+
+    h3{
+        font-size: 30px;
     }
 }
 
 @media (min-width: 1030px) {
     body{
-        margin-top: 200px;
+        margin-top: 224px;
     }
 
     header{
         height: 175px;
     }
 
+    .features{
+        margin-top: -24px;
+    }
+
     .sets{
         margin: 12px;
     }
-    
-    .sets img{
-        
-        width: 500px;
-        height: 400px;
+
+    .sets-ind img{
+        width: 800px;
+        height: 600px;
     }
     
-    .sets iframe{
-        
-        width: 500px;
-        height: 400px;
+    .sets-ind iframe{
+        width: 800px;
+        height: 600px;
     }
 
     .day{
@@ -142,18 +157,35 @@ p{
         height: 600px;
     }
 
-    .text{
-        flex-wrap: wrap;
-        margin: 12px;
-        height: 350px;
-    }
-
     h3{
-        font-size: 24px;
+        font-size: 40px;
     }
 
     p{
-        font-size: 18px;
+        font-size: 24px;
     }
-   
+}
+
+@media (min-width: 1500px) {
+    header{
+        height: 250px;
+    }
+    
+    body{
+        margin-top: 250px;
+    }
+    
+    .sets{
+        max-width: 100%;
+    }
+
+    .sets-ind{
+        display: flex;
+        margin: 12px;
+    }
+
+    .text{
+        max-width: 50%;
+        margin-left: 12px;
+    }
 }

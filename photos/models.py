@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 class ApodPhoto(models.Model):
     title = models.CharField(max_length=200)
@@ -6,7 +7,7 @@ class ApodPhoto(models.Model):
     date = models.DateField()
     url = models.URLField()
     explanation = models.TextField()
-    author = models.ForeignKey('users.CustomUser', related_name="posts", on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name="apodposts", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

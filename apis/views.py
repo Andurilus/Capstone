@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from photos import models
+from .serializers import ApodPhotoSerializer
+
+class ApodList(generics.ListCreateAPIView):
+    queryset = models.ApodPhoto.objects.all()
+    serializer_class = ApodPhotoSerializer
+
+class ApodDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.ApodPhoto.objects.all()
+    serializer_class = ApodPhotoSerializer

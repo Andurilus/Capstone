@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='apodphoto',
             name='author',
-            field=models.ForeignKey(default=datetime.datetime(2022, 3, 31, 21, 54, 0, 979721, tzinfo=utc), on_delete=django.db.models.deletion.CASCADE, related_name='posts', to='users.customuser'),
+            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='posts', to='users.customuser'),
             preserve_default=False,
         ),
     ]
