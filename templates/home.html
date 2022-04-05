@@ -7,64 +7,64 @@
     {% if user.is_authenticated %}
         
 
-        <div id="app">
-            <header>
-                <div class="nav">
-                    <div class="greeting">
-                        <p>Hello {{ user.username }}!</p>
-                    </div>
-                    <div>
-                        <p><a href="{% url 'logout' %}">Log Out</a></p>
-                    </div>
+        
+        <header>
+            <div class="nav">
+                <div class="greeting">
+                    <p>Hello {{ user.username }}!</p>
                 </div>
-                <div class="features">
-                    <h2>Choose a date for a previous picture:</h2>
-                    <input type="date" v-model="userFilter" class="calendar">
-                    <button v-on:click="loadAPOD" class="button">Submit</button>
-                </div>
-            </header>
-            <div class="flex-container">
-                <div v-if="Object.keys(apod).length" class="day">
-                    
-                    <div v-if="apod.media_type === 'image'">
-                        <img :src="apod.url">
-                    </div>
-
-                    <div v-else-if="apod.media_type === 'video'">
-                        <iframe :src="apod.url"></iframe>
-                    </div>
-                    
-                    <div class="single">
-                        <h3>[[ apod.title ]]</h3>
-                        <p>[[ apod.explanation ]]</p>
-                    </div>
-                    
-                
-                </div>
-
-                <div v-else class="sets">
-                    <div v-for="info in arand" :key="info.date" class="sets-ind">
-                        
-                        <div v-if="info.media_type === 'image'">
-                            <img :src="info.url">
-                        </div>
-
-                        <div v-else-if="info.media_type === 'video'">
-                            <iframe :src="info.url"></iframe>
-                        </div>
-
-                        <div class="text">
-                            <h3>[[ info.title ]]</h3>
-                            <p>[[ info.explanation ]]</p>
-                        </div>
-                        
-                    
-                    </div>
-                
+                <div>
+                    <p><a href="{% url 'logout' %}">Log Out</a></p>
                 </div>
             </div>
+            <div class="features">
+                <h2>Choose a date for a previous picture:</h2>
+                <input type="date" v-model="userFilter" class="calendar">
+                <button v-on:click="loadAPOD" class="button">Submit</button>
+            </div>
+        </header>
+        <div class="flex-container">
+            <div v-if="Object.keys(apod).length" class="day">
+                
+                <div v-if="apod.media_type === 'image'">
+                    <img :src="apod.url">
+                </div>
 
+                <div v-else-if="apod.media_type === 'video'">
+                    <iframe :src="apod.url"></iframe>
+                </div>
+                
+                <div class="single">
+                    <h3>[[ apod.title ]]</h3>
+                    <p>[[ apod.explanation ]]</p>
+                </div>
+                    
+            
+            </div>
+
+            <div v-else class="sets">
+                <div v-for="info in arand" :key="info.id" class="sets-ind">
+                    
+                    <div v-if="info.media_type === 'image'">
+                        <img :src="info.url">
+                    </div>
+
+                    <div v-else-if="info.media_type === 'video'">
+                        <iframe :src="info.url"></iframe>
+                    </div>
+
+                    <div class="text">
+                        <h3>[[ info.title ]]</h3>
+                        <p>[[ info.explanation ]]</p>
+                    </div>
+                    <button @click="createApod(info) ">Save</button>
+                
+                </div>
+            
+            </div>
         </div>
+
+        
 
     {% else %}
         <p>You are not logged in!</p>

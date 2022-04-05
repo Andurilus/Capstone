@@ -28,6 +28,10 @@ body{
     color: white;
 }
 
+hr{
+    border: 1px solid white;
+}
+
 *, *:before, *:after{
     box-sizing: inherit;
 }
@@ -92,6 +96,10 @@ p{
 
 .single{
     color: white;
+}
+
+.sets-ind{
+    border-bottom: 1px solid white;
 }
 
 
