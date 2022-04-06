@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <header>
+            <div class="nav">
+                <div class="greeting">
+                    <p>Hello {{ user.username }}!</p>
+                </div>
+                <div>
+                    <p><a href="{% url 'home' %}">Home</a></p>
+                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                </div>
+            </div>
+            <div class="features">
+                <h2>Choose the Api Data to edit:</h2>
+                <select v-model="apiData">
+                    <option disabled value="" >Please Select</option>
+                    <option value="/apis/apod/">Apod</option>
+                </select>
+                <button v-on:click="loadUserData">Submit</button>
+            </div>
+        </header>  
+        
+        <div v-for="info in userData" :key="info.id" class="sets">
+            <div v-if="info.author === currentUser.id" class="sets-ind">
+                <div v-if="info.media === 'image'">
+                    <img :src="info.url">
+                </div>
+                <div v-else-if="info.media === 'video'">
+                    <iframe :src="info.url"></iframe>
+                </div>
+                <div class="text">
+                    
+                    <h3><input type="text" v-model="info.title"></h3>
+                    
+                    <p><textarea v-model="info.explanation"></textarea></p>
+                    <button v-on:click="editUserData(info)">Edit</button>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

@@ -4,9 +4,13 @@ const vm = new Vue({
     data: {
         apod: {},
         arand: {},
+        userData: {},
         userFilter: "",
         showRand: true,
         currentUser: {},
+        apiData: "",
+        newTitle: "",
+        newExplanation: "",
         csrf_token: "",
     },
 
@@ -78,11 +82,29 @@ const vm = new Vue({
         loadCurrentUser: function() {
             axios({
                 method: 'get',
-                url: 'apis/currentuser/'
+                url: '/apis/currentuser/'
             }).then(response => this.currentUser = response.data)
+        },
+        loadUserData: function() {
+            axios({
+                method: 'get',
+                url: this.apiData
+            }).then(response => this.userData = response.data)
+        },
+        editUserData: function(info) {
+            axios({
+                method: 'patch',
+                url: `${this.apiData}${info.id}`,
+                headers: {
+                    "X-CSRFToken": this.csrf_token
+                },
+                data: {
+                    "title": info.title,
+                    "explanation": info.explanation
+                }
+            })
         }
     },
-    
     created: function() {
         this.loadRand()
         this.loadCurrentUser()
