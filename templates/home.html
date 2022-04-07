@@ -13,13 +13,13 @@
                 <div class="greeting">
                     <p>Hello {{ user.username }}!</p>
                 </div>
-                <div>
+                <div class="nav-tools">
                     <p><a href="{% url 'edit' %}">Edit</a></p>
                     <p><a href="{% url 'logout' %}">Log Out</a></p>
                 </div>
             </div>
             <div class="features">
-                <h2>Choose a date for a previous picture:</h2>
+                <h2>Choose a date for a specific picture:</h2>
                 <input type="date" v-model="userFilter" class="calendar">
                 <button v-on:click="loadAPOD" class="button">Submit</button>
             </div>

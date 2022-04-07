@@ -10,7 +10,7 @@
                 <div class="greeting">
                     <p>Hello {{ user.username }}!</p>
                 </div>
-                <div>
+                <div class="nav-tools">
                     <p><a href="{% url 'home' %}">Home</a></p>
                     <p><a href="{% url 'logout' %}">Log Out</a></p>
                 </div>
@@ -35,10 +35,11 @@
                 </div>
                 <div class="text">
                     
-                    <h3><input type="text" v-model="info.title"></h3>
+                    <h3><input type="text" v-model="info.title" class="editinput"></h3>
                     
                     <p><textarea v-model="info.explanation"></textarea></p>
                     <button v-on:click="editUserData(info)">Edit</button>
+                    <button v-on:click="deleteUserData(info)">Delete</button>
                 </div>
             </div>
         </div>

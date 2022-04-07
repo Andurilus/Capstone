@@ -11,6 +11,7 @@ const vm = new Vue({
         apiData: "",
         newTitle: "",
         newExplanation: "",
+        showData: "",
         csrf_token: "",
     },
 
@@ -88,7 +89,10 @@ const vm = new Vue({
         loadUserData: function() {
             axios({
                 method: 'get',
-                url: this.apiData
+                url: this.apiData,
+                params: {
+                    "author": this.currentUser.id
+                }
             }).then(response => this.userData = response.data)
         },
         editUserData: function(info) {
@@ -101,6 +105,15 @@ const vm = new Vue({
                 data: {
                     "title": info.title,
                     "explanation": info.explanation
+                }
+            })
+        },
+        deleteUserData: function(info) {
+            axios({
+                method: 'delete',
+                url: `${this.apiData}${info.id}`,
+                headers: {
+                    "X-CSRFToken": this.csrf_token
                 }
             })
         }
