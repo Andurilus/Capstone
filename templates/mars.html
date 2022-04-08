@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="nav">
+            <h1>Fotos de Astronomía</h1>
+        </div>
+    </header>
+    {% if user.is_authenticated %}
+        
+        <header>
+            <div class="nav">
+                <div class="greeting">
+                    <p>Hello {{ user.username }}!</p>
+                </div>
+                <div class="nav-tools">
+                    <p><a href="{% url 'home' %}">Home</a></p>
+                    <p><a href="{% url 'edit' %}">Edit</a></p>
+                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                </div>
+            </div>
+            <div class="features">
+                <h2>Choose a date for some photos:</h2>
+                <input type="date" v-model="userFilter" class="calendar">
+                <button v-on:click="loadMars" class="button">Submit</button>
+            </div>
+        </header>
+        <div class="flex-container">
+            <div v-if="Object.keys(mars).length" class="sets">
+                <div v-for="info in mars.photos" :key="info.id" class="sets-ind">
+                    <img :src="info.img_src">
+                    <button v-on:click="createMars(info)" class="button">Save</button>
+                </div>
+            </div>
+        </div>
+    {% endif %} 
+{% endblock %}

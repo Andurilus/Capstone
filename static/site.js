@@ -4,6 +4,7 @@ const vm = new Vue({
     data: {
         apod: {},
         arand: {},
+        mars: {},
         userData: {},
         userFilter: "",
         showRand: true,
@@ -23,8 +24,6 @@ const vm = new Vue({
                 params: {
                     
                     api_key: `${apikey}`,
-                    // date: "2021-07-14"
-                    // count: 3
                     date: this.userFilter
                     
                 }
@@ -33,7 +32,20 @@ const vm = new Vue({
             }).catch(error => {
                 console.log(error.response.data)
             })
-            
+        },
+        loadMars: function() {
+            axios({
+                method: 'get',
+                url: 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos',
+                params: {
+                    api_key: `${apikey}`,
+                    earth_date: this.userFilter
+                }
+            }).then((response) => {
+                this.mars = response.data
+            }).catch(error => {
+                console.log(error.response.data)
+            })
         },
         loadRand: function() {
             axios({
@@ -80,6 +92,37 @@ const vm = new Vue({
                 }
             })
         },
+        createMars: function(info) {
+            let today = new Date()
+            let yyyy = today.getFullYear()
+            let mm = today.getMonth() + 1
+            let dd = today.getDate()
+
+            if (dd < 10) dd = '0' + dd
+            if (mm < 10) mm = '0' + mm
+
+            let date = yyyy + '-' + mm + '-' + dd
+            
+            
+            axios({
+                
+                method: 'post',
+                url: '/apis/mars/',
+                headers: {
+                    "X-CSRFToken": this.csrf_token
+                },
+                data: {
+                    "author": this.currentUser.id,
+                    "date": date,
+                    "sol": info.sol,
+                    "earth_date": info.earth_date,
+                    "rover": info.rover.name,
+                    "camera_name": info.camera.name,
+                    "url": info.img_src,
+                    
+                }
+            })
+        },
         loadCurrentUser: function() {
             axios({
                 method: 'get',
@@ -87,6 +130,7 @@ const vm = new Vue({
             }).then(response => this.currentUser = response.data)
         },
         loadUserData: function() {
+            
             axios({
                 method: 'get',
                 url: this.apiData,

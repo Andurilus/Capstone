@@ -40,13 +40,14 @@ body{
 textarea{
     background-color: rgb(0, 0, 27);
     color: white;
-    border: 0ch;
+    
 }
 
 .editinput{
     background-color: rgb(0, 0, 27);
     color: white;
-    border: 0ch;
+   
+    
 }
 
 hr{

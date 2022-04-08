@@ -20,29 +20,40 @@
                 <select v-model="apiData">
                     <option disabled value="" >Please Select</option>
                     <option value="/apis/apod/">Apod</option>
+                    <option value="/apis/mars/">Mars</option>
                 </select>
                 <button v-on:click="loadUserData">Submit</button>
             </div>
-        </header>  
-        
-        <div v-for="info in userData" :key="info.id" class="sets">
-            <div v-if="info.author === currentUser.id" class="sets-ind">
-                <div v-if="info.media === 'image'">
-                    <img :src="info.url">
-                </div>
-                <div v-else-if="info.media === 'video'">
-                    <iframe :src="info.url"></iframe>
-                </div>
-                <div class="text">
-                    
-                    <h3><input type="text" v-model="info.title" class="editinput"></h3>
-                    
-                    <p><textarea v-model="info.explanation"></textarea></p>
-                    <button v-on:click="editUserData(info)">Edit</button>
-                    <button v-on:click="deleteUserData(info)">Delete</button>
+        </header>
+
+        {% comment %} <div v-if="apiData === '/apis/apod/'"> {% endcomment %}
+            <div v-for="info in userData" :key="info.id" class="sets">
+                <div v-if="info.author === currentUser.id" class="sets-ind">
+                    <div v-if="info.media === 'image'">
+                        <img :src="info.url">
+                    </div>
+                    <div v-else-if="info.media === 'video'">
+                        <iframe :src="info.url"></iframe>
+                    </div>
+                    <div v-else>
+                        <img :src="info.url">
+                    </div>
+                    <div class="text">
+                        
+                        <h3><input type="text" v-model="info.title" class="editinput"></h3>
+                        
+                        <p><textarea v-model="info.explanation"></textarea></p>
+                        <button v-on:click="editUserData(info)">Edit</button>
+                        <button v-on:click="deleteUserData(info)">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
 
+        {% comment %} <div v-else-if="apiData === '/apis/mars/'">
+            <div v-for="info in userData" :key="info.id" class="sets">
+                <img :src="info.url">
+            </div>
+        </div> {% endcomment %}
     {% endif %}
 {% endblock %}

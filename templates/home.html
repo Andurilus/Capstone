@@ -3,7 +3,11 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
+    <header>
+        <div class="nav">
+            <h1>Fotos de Astronomía</h1>
+        </div>
+    </header>
     {% if user.is_authenticated %}
         
 
@@ -14,6 +18,7 @@
                     <p>Hello {{ user.username }}!</p>
                 </div>
                 <div class="nav-tools">
+                    <p><a href="{% url 'mars' %}">Mars Rover</a></p>
                     <p><a href="{% url 'edit' %}">Edit</a></p>
                     <p><a href="{% url 'logout' %}">Log Out</a></p>
                 </div>
@@ -48,17 +53,19 @@
                     
                     <div v-if="info.media_type === 'image'">
                         <img :src="info.url">
+                        <button @click="createApod(info) ">Save</button>
                     </div>
 
                     <div v-else-if="info.media_type === 'video'">
                         <iframe :src="info.url"></iframe>
+                        <button @click="createApod(info) ">Save</button>
                     </div>
 
                     <div class="text">
                         <h3>[[ info.title ]]</h3>
                         <p>[[ info.explanation ]]</p>
                     </div>
-                    <button @click="createApod(info) ">Save</button>
+                    
                 
                 </div>
             
