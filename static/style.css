@@ -125,6 +125,10 @@ p{
     border-bottom: 1px solid white;
 }
 
+/* .day{
+    border: 1px solid white;
+
+} */
 
 @media (min-width: 730px) {
     body{
@@ -215,10 +219,14 @@ p{
     }
     
     body{
-        margin-top: 250px;
+        margin-top: 275px;
     }
     
     .sets{
+        max-width: 100%;
+    }
+
+    .day{
         max-width: 100%;
     }
 

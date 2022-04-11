@@ -30,6 +30,7 @@
             </div>
         </header>
         <div class="flex-container">
+            
             <div v-if="Object.keys(apod).length" class="day">
                 
                 <div v-if="apod.media_type === 'image'">
@@ -44,7 +45,7 @@
                     <h3>[[ apod.title ]]</h3>
                     <p>[[ apod.explanation ]]</p>
                 </div>
-                    
+                <button @click="createApod(apod)">Save</button>
             
             </div>
 
