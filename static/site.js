@@ -23,7 +23,7 @@ const vm = new Vue({
                 url: 'https://api.nasa.gov/planetary/apod',
                 params: {
                     
-                    api_key: os.environ.get('APIKEY'),
+                    api_key: "0crIq4YXdQnNABS4MWB6zlsGlzGGjfcdfeBv6zRI",
                     date: this.userFilter
                     
                 }
@@ -38,7 +38,7 @@ const vm = new Vue({
                 method: 'get',
                 url: 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos',
                 params: {
-                    api_key: os.environ.get('APIKEY'),
+                    api_key: "0crIq4YXdQnNABS4MWB6zlsGlzGGjfcdfeBv6zRI",
                     earth_date: this.userFilter
                 }
             }).then((response) => {
@@ -53,7 +53,7 @@ const vm = new Vue({
                 url: 'https://api.nasa.gov/planetary/apod',
                 params: {
                     
-                    api_key: os.environ.get('APIKEY'),
+                    api_key: "0crIq4YXdQnNABS4MWB6zlsGlzGGjfcdfeBv6zRI",
                     count: 3
                 
                 }
