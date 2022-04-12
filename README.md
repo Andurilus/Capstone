@@ -5,7 +5,7 @@
 The goal of this project is to create a platform for users to view, save, edit and delete information from their own user profile.
 The information will be in the form of pictures and exerpts created by Nasa. The goal will be to call data from APIs that Nasa runs
 to then allow users to save that data to their own profile or rather API. The user will be able to make edits to the excerpts and/or
-delete that saved data from thier profile.
+delete that saved data from their profile.
 
 ###Features:
 
