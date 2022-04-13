@@ -125,6 +125,16 @@ p{
     border-bottom: 1px solid white;
 }
 
+textarea{
+    resize: none;
+    width: 350px;
+    height: 300px;
+}
+
+.editinput{
+    width: 350px;
+}
+
 /* .day{
     border: 1px solid white;
 
@@ -156,6 +166,10 @@ p{
         resize: none;
         width: 650px;
         height: 650px;
+    }
+
+    .editinput{
+        width: 650px
     }
 }
 
