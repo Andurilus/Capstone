@@ -11,7 +11,6 @@ html{
 .nav-tools{
     display: flex;
     justify-content: right;
-    
 }
 
 .features{
@@ -40,14 +39,11 @@ body{
 textarea{
     background-color: rgb(0, 0, 27);
     color: white;
-    
 }
 
 .editinput{
     background-color: rgb(0, 0, 27);
     color: white;
-   
-    
 }
 
 hr{
@@ -67,12 +63,10 @@ header{
     left: 0;
     z-index: 999px;
     width: 100%;
-    
 }
 
 header h2{
     color: white;
-    
 }
 
 .sets{
@@ -103,19 +97,18 @@ header h2{
 
 .calendar{
     margin-left: 12px;
-    
+    width: 135px;
 }
 
 button{
     margin: 12px;
 }
 
-p{      
+p{
     line-height: 1.4em;
     font-family: 'Roboto', Helvetica, sans-serif;
     font-size: 12px;
 }
-
 
 .single{
     color: white;
@@ -144,6 +137,7 @@ textarea{
     body{
         margin-top: 200px;
     }
+
     .sets{
         display: flex;
         flex-wrap: wrap;
@@ -162,6 +156,7 @@ textarea{
     .features select{
         margin-top: -12px;
     }
+
     textarea{
         resize: none;
         width: 650px;
@@ -194,7 +189,7 @@ textarea{
         width: 800px;
         height: 600px;
     }
-    
+
     .sets-ind iframe{
         width: 800px;
         height: 600px;
@@ -203,14 +198,14 @@ textarea{
     .day{
         justify-content: center;
     }
-    
+
     .day img{
         margin-left: auto;
         margin-right: auto;
         width: 800px;
         height: 600px;
     }
-    
+
     .day iframe{
         margin-left: auto;
         margin-right: auto;
@@ -231,11 +226,11 @@ textarea{
     header{
         height: 250px;
     }
-    
+
     body{
         margin-top: 275px;
     }
-    
+
     .sets{
         max-width: 100%;
     }
@@ -253,11 +248,13 @@ textarea{
         max-width: 50%;
         margin-left: 12px;
     }
+
     textarea{
         resize: none;
         width: 700px;
         height: 650px;
     }
+
     .editinput{
         width: 700px;
     }
