@@ -1,29 +1,29 @@
-#Fotos de Astronomía
+# Fotos de Astronomía
 
-###Project Overview:
+### Project Overview:
 
 The goal of this project is to create a platform for users to view, save, edit and delete information from their own user profile.
-The information will be in the form of pictures and exerpts created by Nasa. The goal will be to call data from APIs that Nasa runs
+The information will be in the form of pictures and excerpts created by Nasa. The goal will be to call data from APIs that Nasa runs
 to then allow users to save that data to their own profile or rather API. The user will be able to make edits to the excerpts and/or
 delete that saved data from their profile.
 
-###Features:
+### Features:
 
 As a user, I want to be able to save the data that I like because I want to be able to parse through it again without having to hunt for it.
-    ####Tasks:
+    #### Tasks:
     -Store user saved data
     -Display Data
     -Sort Data
 
 As a user, I would like to edit those excerpts because I want to add my own ideas or feelings regarding that image.
-    ####Tasks:
+    #### Tasks:
     -Edit Data
 
 As a user, I would want to have the option to remove previous images and data because I no longer need or want it in my profile.
-    ####Tasks:
+    #### Tasks:
     -Delete Data
 
-###Data Model
+### Data Model
 
 The beginning data needed for this app will be:
 
@@ -32,7 +32,7 @@ The beginning data needed for this app will be:
     Dates
     Multiple APIs(APOD, NeoWs and Mars Rover to name a few)
     
-###Schedule
+### Schedule
 
 The first week will be setting up the user creation, user interface for their profile and data. This week will also likely involve
 creating the first link to the API for APOD to give us the ability to see that everything is working. 
